@@ -1,0 +1,37 @@
+<a href="javascript: var inputs = document.getElementsByTagName('input');
+var textareas = document.getElementsByTagName('textarea');
+var selects = document.getElementsByTagName('select');
+
+function populate( inputs, textareas, selects ) {
+	if ( inputs ) {
+	  for ( i=0; i < inputs.length; i++ ) {
+	    if ( inputs[i].type == 'hidden' || inputs[i].type == 'submit' ) {
+	      continue;
+	    }
+	    if ( inputs[i].type == 'email' || inputs[i].name == 'email' ) {
+	      inputs[i].value = 'test@test.com';
+	    }
+	    if ( inputs[i].type == 'number' ) {
+	      inputs[i].value = '12345';
+	    }
+	    if ( inputs[i].type == 'url' ) {
+	      inputs[i].value = 'http\:\/\/www.test.com';
+	    }
+	    if ( inputs[i].type == 'checkbox' || inputs[i].type == 'radio' ) {
+	      inputs[i].setAttribute( 'checked', 'checked');
+	    }
+	    inputs[i].value = 'test';
+	  }
+	}
+	if	( textareas ) {
+		for ( i=0; i < textareas.length; i++ ) {
+			textareas[i].value = 'test';
+		}
+	}
+	if ( selects ) {
+		for ( i=0; i < selects.length; i++ ) {
+			selects[i].options[0].setAttribute('selected','selected');
+		}
+	}
+}
+populate( inputs, textareas, selects );">pre-populate</a>
